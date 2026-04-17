@@ -24,9 +24,11 @@
 <br><br> 주위를 밝힐 방법이 당신에게 있을까요?
 </p>
  <script>
+  const selection = window.getSelection();
+  const selectedText = selection.toString();
   const colorStart = document.getElementById("color");
   colorStart.addEventListener('mousedown', (event) => {
-  console.log(colorStart.window.getSelection().toString());
+  console.log(colorStart.selectedText);
 });
   
 </script>
