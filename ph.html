@@ -36,6 +36,9 @@
   const range = selection.getRangeAt(0);
   if (range.collapsed) return;
 
+  text = selection.toString();
+  if (text !== lastText) {
+
   function unwrapSpan(node) {
   if (node.nodeType === 1 && node.tagName === "SPAN") {
     const parent = node.parentNode;
@@ -47,8 +50,6 @@
     parent.removeChild(node);
   }
 }
-  text = selection.toString();
-  if (text !== lastText) {
   const contents = range.extractContents();
   contents.querySelectorAll("span").forEach(unwrapSpan);
   const span = document.createElement("span");
