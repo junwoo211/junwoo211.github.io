@@ -15,15 +15,18 @@
     }
    
   </style>
-<p id="color"; style="color: white; text-align: center; font-size: 30px;">
+<p style="color: white; text-align: center; font-size: 30px;">
+<label for="color">selectionStart property on type=color</label>
+<input id="color" type="color" />
+
 <br>
 <br><br><br> 첫 문제를 푸셨군요.
 <br><br> 미궁에 들어서자 주변이 매우 어두워졌습니다.
 <br><br> 주위를 밝힐 방법이 당신에게 있을까요??
 </p>
  <script>
- const color = document.getElementById("color");
- document.write(('#color').selectionStart);
+  const colorStart = document.getElementById("color");
+  console.log(colorStart.selectionStart);
 </script>
 <p style="color: black; text-align: center; font-size: 30px;">
 <br> 네 그렇습니다.
