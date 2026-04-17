@@ -1,2 +1,2 @@
 
-console.log($('#srh').selectionStart )
+console.log(srh.selectionStart )
