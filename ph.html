@@ -24,10 +24,11 @@
 <br><br> 주위를 밝힐 방법이 당신에게 있을까요?
 </p>
  <script>
- 
+
+  let lastText = "";
   const colorStart = document.getElementById("color");
 
-  document.addEventListener('mouseup', () => {
+  document.addEventListener("selectionchange", () => {
   const selection = window.getSelection();
 
   if (selection.rangeCount === 0) return;
@@ -35,12 +36,19 @@
   const range = selection.getRangeAt(0);
   if (range.collapsed) return;
 
+  text = selection.toString();
+  if (text !== lastText) {
+
   const span = document.createElement("span");
   span.style.backgroundColor = "yellow"; // 또는 color
 
   const contents = range.extractContents();
   span.appendChild(contents);
   range.insertNode(span);
+
+   
+    lastText = text;
+  }
 
   selection.removeAllRanges(); // 선택 해제
 });
