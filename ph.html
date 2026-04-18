@@ -46,15 +46,12 @@ onclick="ox('coding','3.html')">
    if (isIOSSafari()) {
   
   const selection = window.getSelection();
-
-  //document.querySelectorAll(".elim").forEach(el => {
-  //el.replaceWith(...el.childNodes);
-//});
   //if (selection.rangeCount === 0) return;
 
   const range = selection.getRangeAt(0);
-  //if (range.collapsed) return;
-
+  if (range.collapsed) {
+  document.querySelector(".elim").style.color = "black";
+  }
   text = selection.toString();
   if (text !== lastText) {
 
