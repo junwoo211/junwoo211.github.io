@@ -37,7 +37,10 @@ onclick="ox('coding','3.html')">
 
   let lastText = "";
 
+  
   document.addEventListener("selectionchange", () => {
+   if (isIOSSafari()) {
+  
   const selection = window.getSelection();
 
   //document.querySelectorAll(".elim").forEach(el => {
@@ -59,7 +62,7 @@ onclick="ox('coding','3.html')">
   range.insertNode(span);
    
     lastText = text;
-  }
+  }}
 
   // 선택 해제
 });
