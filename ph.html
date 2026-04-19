@@ -53,6 +53,9 @@ onclick="ox('coding','3.html')">
   selection = window.getSelection();
   //if (range.collapsed) return;
 
+  document.querySelectorAll(".elim").forEach(el => {
+  el.replaceWith(...el.childNodes);
+});
   const range = selection.getRangeAt(0);
   if (selection.rangeCount === 0) {
   document.querySelector(".elim").style.color = "black";
