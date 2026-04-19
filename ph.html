@@ -35,6 +35,7 @@ onclick="ox('coding','3.html')">
 </p>
  <script>
 
+  const selection;
   let lastText = "";
   function isIOSSafari() {
   return /iPad|iPhone|iPod/.test(navigator.userAgent)
@@ -42,10 +43,14 @@ onclick="ox('coding','3.html')">
 }
 
   
+  document.addEventListener("touchend", () => {
+   if (isIOSSafari()) {
+    
+   }})
   document.addEventListener("selectionchange", () => {
    if (isIOSSafari()) {
   
-  const selection = window.getSelection();
+  selection = window.getSelection();
   //if (range.collapsed) return;
 
   const range = selection.getRangeAt(0);
