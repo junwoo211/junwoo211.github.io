@@ -70,8 +70,13 @@ onclick="ox('coding','3.html')">
   //if (range.collapsed) return;
 
   const text = selection.toString();
-  if (text !== lastText) {
+  if (text !== lastText) { 
 
+   container.querySelectorAll("span.color").forEach(el => {
+    if (selection.containsNode(el, true)) {
+      el.style.color = "red"; // 👈 바로 색 변경
+    }
+  });
  
     lastText = text;
   }}
