@@ -51,7 +51,7 @@ onclick="ox('coding','3.html')">
 </p>
  <script>
 
-  const selection;
+  let selection;
   let lastText = "";
   function isIOSSafari() {
   return /iPad|iPhone|iPod/.test(navigator.userAgent)
@@ -69,7 +69,7 @@ onclick="ox('coding','3.html')">
   selection = window.getSelection();
   //if (range.collapsed) return;
 
-  text = selection.toString();
+  const text = selection.toString();
   if (text !== lastText) {
 
  
