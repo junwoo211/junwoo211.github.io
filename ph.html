@@ -66,10 +66,7 @@ onclick="ox('coding','3.html')">
    if (isIOSSafari()) {
   
   selection = window.getSelection();
-    spans.forEach(el => {
-    el.style.color = "black";
-  });
-
+   
    container.querySelectorAll("span.color").forEach(el => {
     if (selection.containsNode(el, true)) {
       el.style.color = "red"; // 👈 바로 색 변경
