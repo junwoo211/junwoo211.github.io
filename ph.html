@@ -15,8 +15,8 @@
     <br><br>
     주위를 밝힐 방법이 당신에게 있을까요?
     <br><br>
-    <span id="target"></span>
-  </p>
+    <span id="target"></span> // 숨길 텍스트 넣을 곳
+  </p> // 이전에는 흰 글이랑 검은 글이랑 다른 <p>로 나눠져 있었는데 함께 드래그 했을 때 뭔 일 일어날지 몰라서 합침
 
   <div style="text-align: center;">
     <input 
@@ -39,34 +39,34 @@
 드래그를 하면 어두워서 안보이던 글씨도 보이게 됩니다.
 정답은 coding 입니다.`;
 
-    const container = document.getElementById("target");
+    const container = document.getElementById("target"); // 넣을 텍스트를 감싼 span 가져오기
 
-    text.split("").forEach(char => {
-      if (char === "\n") {
-        container.appendChild(document.createElement("br"));
+    text.split("").forEach(char => { // 위에 있는 text 하나씩 나누고 줄바꿈 있으면 <br> 태그 넣기 
+      if (char === "\n") { 
+        container.appendChild(document.createElement("br")); 
       } else {
-        const span = document.createElement("span");
-        span.className = "color";
+        const span = document.createElement("span"); // 줄바꿈 없으면 글자 하나씩 <span>으로 감싸기 -> 그래야 글자 하나씩 색 바꿀 수 있음
+        span.className = "color"; // span에 color 클래스 넣기
         span.style.color = "black";
         span.textContent = char;
-        container.appendChild(span);
+        container.appendChild(span); // <span id="target"></span> 여기 안에 검은색 글 추가
       }
     });
 
-    function isIOSSafari() {
+    function isIOSSafari() { // IOS에만 반응하게 하기
       return /iPad|iPhone|iPod/.test(navigator.userAgent)
         || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
     }
 
-    document.addEventListener("selectionchange", () => {
+    document.addEventListener("selectionchange", () => { // 드래그 감지되면 호출
       if (isIOSSafari()) {
-        const selection = window.getSelection();
+        const selection = window.getSelection(); // 드래그된 부분 selection에 저장
 
         container.querySelectorAll("span.color").forEach(el => {
-          if (selection.containsNode(el, true)) {
-            el.style.color = "white";
+          if (selection.containsNode(el, true)) { // 클래스가 color인 <span>이 드래그됐는지 하나씩 검사
+            el.style.color = "white"; // 선택영역에 포함이면 흰색으로 바꾸기
           } else {
-            el.style.color = "black";
+            el.style.color = "black"; // 선택영역에 포함 안 됐으면 검은색으로 바꾸기
           }
         });
       }
